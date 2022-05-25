@@ -13,6 +13,7 @@ export const allRecipesReducer = (allRecipes = initialState, action) => {
         case 'allRecipes/loadData':
             return action.payload;
         case 'favoriteRecipes/addRecipe':
+            // it goes through all the recipes, the one (id) that is clicked on gets sent to Favorites but returns the other recipes whose id werent clicked  in all recipes
             return allRecipes.filter(recipe => recipe.id !== action.payload.id);
         case 'favoriteRecipes/removeRecipe':
             return [...allRecipes, action.payload]
